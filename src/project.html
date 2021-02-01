@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Screen Time and Yoga</title>
+        <!-- https://d3js.org/ -->
+        <script type="text/javascript" src="js/d3.v6.min.js"></script>
+        <script type="text/javascript" src="js/d3-selection-multi.v0.4.min.js"></script>
+
+        <!-- Main code -->
+        <script type="text/javascript" src="js/screen-time.js"></script>
+        <script type="text/javascript" src="js/month-view.js"></script>
+        <script type="text/javascript" src="js/detailed-view.js"></script>
+        <!-- Code for transitions -->
+        <script type="text/javascript" src="js/transitions.js"></script>
+        <!-- Code for warping text -->
+        <script type="text/javascript" src="js/wrap-text.js"></script>
+        <style>
+svg {
+    display: block;
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+body {
+    display: block;
+    margin-bottom: 4px;
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.axisLabel {
+    text-anchor: middle;
+    font-family: sans-serif;
+    font-size: 11px;
+    fill: black;
+    font-weight: bold
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+        </style>
+    </head>
+    <body onload="createViz();">
+        <div id="main">
+              <!-- <form>
+                  <input type="button" value="Month View" onclick="toggleVis();" id="toggleBt"/>
+              </form> -->
+        </div>
+        <label class="switch" id="yogaButton" style="left:1220px; bottom:730px">
+          <input type="checkbox" onclick="toggleYoga()">
+          <span class="slider round"></span>
+        </label>
+    </body>
+
+</html>
